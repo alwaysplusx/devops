@@ -1,0 +1,7 @@
+version: '2'
+services:
+  seata:
+    image: seataio/seata-server:1.4.1
+    container_name: seata-server
+    ports:
+      - 8091:8091

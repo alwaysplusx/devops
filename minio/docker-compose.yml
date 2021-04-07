@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  minio:
+    image: minio
+    container_name: minio
+    ports:
+      - "19000:9000"
