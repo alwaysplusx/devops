@@ -1,0 +1,13 @@
+version: "2"
+services:
+  redis-6379:
+    image: redis:6.0.9
+    container_name: redis
+    ports:
+      - 6379:6379
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./data:/data
+      - ./conf:/usr/local/etc/redis/conf
+    command: redis-server /usr/local/etc/redis/conf/redis.conf
