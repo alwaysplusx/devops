@@ -1,0 +1,15 @@
+version: '3.6'
+
+services:
+  influxdb:
+    image: influxdb:2.0
+    container_name: influxdb
+    ports:
+      - 8086:8086
+    volumes:
+      - ./config:/etc/influxdb/
+    environment:
+      DOCKER_INFLUXDB_INIT_USERNAME: root
+      DOCKER_INFLUXDB_INIT_PASSWORD: change-it
+      DOCKER_INFLUXDB_INIT_ORG: domain.com
+      DOCKER_INFLUXDB_INIT_BUCKET: default
