@@ -1,24 +1,13 @@
-version: "2"
+version: "3.6"
 services:
-  mysql-master:
+  mysql:
     image: mysql:8.0
-    container_name: mysql-master-8.0
+    container_name: mysql
     ports:
-      - "3306:3306"
+      - 3306:3306
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - TZ=Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: root
+      TZ: Asia/Shanghai
     volumes:
-      - ./data/master:/var/lib/mysql
-      - ./config/master:/etc/mysql/conf.d
-  mysql-salve:
-    image: mysql:8.0
-    container_name: mysql-salve-8.0
-    ports:
-      - "3307:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - TZ=Asia/Shanghai
-    volumes:
-      - ./data/salve:/var/lib/mysql
-      - ./config/salve:/etc/mysql/conf.d
+      - ./data:/var/lib/mysql
+      - ./config:/etc/mysql/conf.d
